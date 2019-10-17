@@ -27,16 +27,16 @@ const Toast = function(options) {
     };
   }
   let id = 'toast_' + seed++;
-  // if (instance) {
-  //   Object.assign(instance.$data, options);
-  // } else {
-  instance = new ToastConstructor({
-    data: options
-  });
-  instance.id = id;
-  instance.$mount();
-  document.body.appendChild(instance.$el);
-  // }
+  if (instance) {
+    Object.assign(instance.$data, options);
+  } else {
+    instance = new ToastConstructor({
+      data: options
+    });
+    instance.id = id;
+    instance.$mount();
+    document.body.appendChild(instance.$el);
+  }
   console.log(222, instance.$data);
 };
 export default Toast;
